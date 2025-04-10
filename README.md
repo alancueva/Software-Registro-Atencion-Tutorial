@@ -36,3 +36,12 @@ Para empaquetar el proyecto y generar un instalador, seguiremos los siguientes p
 
 2. Generar un Instalador con Herramientas Externas
    - Si prefieres usar una herramienta externa, puedes utilizar Inno Setup (para Windows) o Install4j (multi-plataforma) para crear un instalador más personalizado.
+
+### Usar `jpackage` (JDK 14+)
+`jpackage` es una herramienta incluida en el JDK 17 que permite crear instaladores nativos.
+
+1. Abre una terminal en la carpeta donde se encuentra el archivo `.jar`.
+2. Ejecuta el siguiente comando:
+
+   ```bash
+   jpackage --name MiAplicacion --input dist --main-jar MiAplicacion.jar --main-class com.miaplicacion.Main --type exe --win-menu

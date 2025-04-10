@@ -1416,8 +1416,8 @@ public class Instrumento extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Acercade ace = new Acercade(this, rootPaneCheckingEnabled);
-        ace.setVisible(rootPaneCheckingEnabled);
+        Acercade ace = new Acercade(this, true);
+        ace.setVisible(true);
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void menufichaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_menufichaMouseClicked

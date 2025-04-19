@@ -2,7 +2,6 @@ package Vistas.Pruebas;
 
 import Controladores.GuardarAlumno;
 
-import java.awt.Point;
 import java.awt.event.KeyEvent;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -11,10 +10,12 @@ import static Vistas.instrumento.Registro_Tutorial.txt_programa;
 import static Vistas.instrumento.Registro_Tutorial.txt_turnos;
 import static Vistas.instrumento.Registro_Tutorial.txt_ciclo;
 import java.util.List;
+import utils.DragComponentHelper;
 
 public class BuscarAlumnos extends javax.swing.JDialog {
-
-    private Point initialClick;
+    
+    private final DragComponentHelper dragComponentHelper = new DragComponentHelper(this);
+    private final DragComponentHelper dragComponentHelper_;
     DefaultListModel listModel = new DefaultListModel();
     DefaultListModel listModel2 = new DefaultListModel();
     DefaultListModel listModel3 = new DefaultListModel();
@@ -23,6 +24,7 @@ public class BuscarAlumnos extends javax.swing.JDialog {
     public BuscarAlumnos(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.dragComponentHelper_ = new DragComponentHelper(jPanel1);
         setLocationRelativeTo(null);
         lstuno.setModel(listModel);
         lstdos.setModel(listModel2);
@@ -39,12 +41,9 @@ public class BuscarAlumnos extends javax.swing.JDialog {
     }
 
     private void moveAllItems() {
-//        DefaultListModel<String> listModel3 = r.getListModel3();
         listModel3.clear();
-        // Agregar todos los elementos de listModel2 a listModel3
         for (int i = 0; i < listModel2.getSize(); i++) {
             listModel3.addElement(listModel2.getElementAt(i));
-//            System.out.println(listModel2.getElementAt(i));
         }
 
     }
@@ -112,16 +111,6 @@ public class BuscarAlumnos extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         chktodo.setForeground(new java.awt.Color(255, 255, 255));
@@ -210,29 +199,7 @@ public class BuscarAlumnos extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_txtaluKeyPressed
 
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel1MousePressed
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel1MouseDragged
-
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-//        String dato = (String) lstuno.getSelectedValue();
-//        if (dato == null) {
-//            JOptionPane.showMessageDialog(rootPane, "Seleccione un Alumno, al menos!");
-//        } else {
-//            Object[] selectedElements = (Object[]) lstdos.getSelectedValue();
-//            for (Object element : selectedElements) {
-//                listModel.removeElement(element);
-//                listModel2.addElement(element);
-//                lstuno.clearSelection();
-//                chktodo.setSelected(false);
-//            }
-//        }
         List<String> selectedValuesList = lstuno.getSelectedValuesList();
         if (selectedValuesList.isEmpty()) {
             JOptionPane.showMessageDialog(rootPane, "Seleccione un Alumno, al menos!");
@@ -265,7 +232,6 @@ public class BuscarAlumnos extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Falta Alumnos en la Lista");
         } else {
             moveAllItems();
-//            r.refreshList();
             dispose();
         }
     }//GEN-LAST:event_rSButtonHover1ActionPerformed

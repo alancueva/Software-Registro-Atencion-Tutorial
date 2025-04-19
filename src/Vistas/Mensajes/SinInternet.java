@@ -1,16 +1,19 @@
 package Vistas.Mensajes;
 
-import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import utils.DragComponentHelper;
 
 public class SinInternet extends javax.swing.JDialog {
 
-    private Point initialClick;
+    private final DragComponentHelper dragComponentHelper_1;
+    private final DragComponentHelper dragComponentHelper_2;
 
     public SinInternet(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.dragComponentHelper_1 = new DragComponentHelper(jPanel1);
+        this.dragComponentHelper_2 = new DragComponentHelper(jLabel1);
         setSize(600, 260);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -31,16 +34,6 @@ public class SinInternet extends javax.swing.JDialog {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/5966877 (1).png"))); // NOI18N
@@ -81,16 +74,6 @@ public class SinInternet extends javax.swing.JDialog {
     private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
         dispose();
     }//GEN-LAST:event_rSButtonHover1ActionPerformed
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel1MouseDragged
-
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel1MousePressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

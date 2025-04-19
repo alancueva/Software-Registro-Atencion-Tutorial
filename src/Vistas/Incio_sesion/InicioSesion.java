@@ -23,20 +23,24 @@ import javax.swing.JOptionPane;
 import javax.swing.JWindow;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import utils.DragComponentHelper;
 
 public class InicioSesion extends javax.swing.JFrame {
 
-    Usuario r = new Usuario();
-    Docentes du = new Docentes();
-    inicio_sesion is = new inicio_sesion();
-    private Point initialClick;
+    private final Usuario r = new Usuario();
     private final JWindow tooltipWindow;
     private final JLabel tooltipLabel;
     private Timer timer;
-
+    private final DragComponentHelper dragComponentHelper_;
+    private final DragComponentHelper dragComponentHelper_1;
+    private final DragComponentHelper dragComponentHelper_2;
+    
     public InicioSesion() {
         initComponents();
         setDefaultCloseOperation(InicioSesion.EXIT_ON_CLOSE);
+        this.dragComponentHelper_ = new DragComponentHelper(jPanel1);     
+        this.dragComponentHelper_1 = new DragComponentHelper(jLabel8);
+        this.dragComponentHelper_2 = new DragComponentHelper(panelRound2);
         setVisible(true);
         setLocationRelativeTo(null);
         this.setSize(950, 600);
@@ -94,16 +98,6 @@ public class InicioSesion extends javax.swing.JFrame {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_X.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 40)); // NOI18N
@@ -125,20 +119,12 @@ public class InicioSesion extends javax.swing.JFrame {
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Teacher-cuate (1).png"))); // NOI18N
         jLabel8.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jLabel8.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel8MouseDragged(evt);
-            }
-        });
         jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jLabel8MouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jLabel8MouseExited(evt);
-            }
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel8MousePressed(evt);
             }
         });
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 470, 450));
@@ -378,25 +364,8 @@ public class InicioSesion extends javax.swing.JFrame {
         nst.setVisible(true);
     }
 
-//    private void mostrarVentanaDocente() {
-//        Instrumento inst = new Instrumento();
-//        inst.codigo(inicio_sesion.idusuario);
-//        inst.mostrarBienvenidaDocente(inicio_sesion.nombre + " " + inicio_sesion.apellido);
-//        inst.mostrarNombreDocente(inicio_sesion.nombre);
-//        inst.mostrarApelledioDocente(inicio_sesion.apellido);
-//        inst.mostrardni(inicio_sesion.dni);
-//        inst.MostarCorreo(inicio_sesion.correo);
-//        inst.mostrarNomApeDocente(inicio_sesion.nombre + " " + inicio_sesion.apellido);
-//        inst.MostrarNomApe(inicio_sesion.nombre, inicio_sesion.apellido);
-//        inst.mostrarprograma(inicio_sesion.programa);
-//        inst.Mostrar_turno(inicio_sesion.turno);
-//        inst.Mostrar_ciclo(inicio_sesion.ciclo);
-//        inst.setVisible(true);
-//        this.dispose();
-//    }
 
     private void lbl_XMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_XMouseClicked
-//        this.dispose();
         System.exit(0);
     }//GEN-LAST:event_lbl_XMouseClicked
 
@@ -493,16 +462,6 @@ public class InicioSesion extends javax.swing.JFrame {
         verificar();
     }//GEN-LAST:event_txtclaveKeyTyped
 
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel1MousePressed
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel1MouseDragged
-
     private void lbl_XMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_XMouseEntered
         lbl_X.setForeground(Color.BLACK);
         // Configurar el Timer para que muestre el mensaje después de 2 segundos
@@ -534,16 +493,6 @@ public class InicioSesion extends javax.swing.JFrame {
     private void jLabel8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseExited
         lbl_msg.setText("");
     }//GEN-LAST:event_jLabel8MouseExited
-
-    private void jLabel8MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jLabel8MousePressed
-
-    private void jLabel8MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jLabel8MouseDragged
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

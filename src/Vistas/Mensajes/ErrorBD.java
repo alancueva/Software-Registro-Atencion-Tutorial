@@ -1,16 +1,21 @@
 package Vistas.Mensajes;
 
-import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import utils.DragComponentHelper;
 
 public class ErrorBD extends javax.swing.JDialog {
 
-    private Point initialClick;
+    private final DragComponentHelper dragComponentHelper_1;
+    private final DragComponentHelper dragComponentHelper_2;
+    private final DragComponentHelper dragComponentHelper_3;
 
     public ErrorBD(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.dragComponentHelper_1 = new DragComponentHelper(jPanel1);
+        this.dragComponentHelper_2 = new DragComponentHelper(lblmsg);
+        this.dragComponentHelper_3 = new DragComponentHelper(lbl_txt);
         this.setSize(630, 290);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
@@ -43,16 +48,6 @@ public class ErrorBD extends javax.swing.JDialog {
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lbl_txt.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -92,16 +87,6 @@ public class ErrorBD extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_rSButtonHover1ActionPerformed
 
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel1MousePressed
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel1MouseDragged
-
     /**
      * @param args the command line arguments
      */
@@ -130,17 +115,15 @@ public class ErrorBD extends javax.swing.JDialog {
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                ErrorBD dialog = new ErrorBD(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            ErrorBD dialog = new ErrorBD(new javax.swing.JFrame(), true);
+            dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosing(java.awt.event.WindowEvent e) {
+                    System.exit(0);
+                }
+            });
+            dialog.setVisible(true);
         });
     }
 

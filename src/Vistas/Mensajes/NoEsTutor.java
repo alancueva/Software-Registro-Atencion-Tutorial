@@ -1,16 +1,21 @@
 package Vistas.Mensajes;
 
-import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import utils.DragComponentHelper;
 
 public class NoEsTutor extends javax.swing.JDialog {
-
-    private Point initialClick;
+    
+    private final DragComponentHelper dragComponentHelper_1;
+    private final DragComponentHelper dragComponentHelper_2;
+    private final DragComponentHelper dragComponentHelper_3;
 
     public NoEsTutor(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.dragComponentHelper_1 = new DragComponentHelper(jPanel2);
+        this.dragComponentHelper_2 = new DragComponentHelper(jLabel1);
+        this.dragComponentHelper_3 = new DragComponentHelper(lbl_msg);
         setSize(730, 420);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -55,16 +60,6 @@ public class NoEsTutor extends javax.swing.JDialog {
 
         jPanel2.setBackground(new java.awt.Color(0, 153, 204));
         jPanel2.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel2MouseDragged(evt);
-            }
-        });
-        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel2MousePressed(evt);
-            }
-        });
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Professor-pana (2).png"))); // NOI18N
@@ -107,16 +102,6 @@ public class NoEsTutor extends javax.swing.JDialog {
     private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
         dispose();
     }//GEN-LAST:event_rSButtonHover1ActionPerformed
-
-    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel2MouseDragged
-
-    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel2MousePressed
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

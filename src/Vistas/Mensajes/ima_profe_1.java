@@ -1,16 +1,19 @@
-
 package Vistas.Mensajes;
 
 import java.awt.Color;
-import java.awt.Point;
+import utils.DragComponentHelper;
 
 public class ima_profe_1 extends javax.swing.JDialog {
- private Point initialClick;
+
+    private final DragComponentHelper dragComponentHelper_;
+    private final DragComponentHelper dragComponentHelper_1;
+
     public ima_profe_1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.dragComponentHelper_ = new DragComponentHelper(jPanel1);
+        this.dragComponentHelper_1 = new DragComponentHelper(jLabel1);
         this.setUndecorated(true);
         initComponents();
-        
         setSize(500, 512);
         setLocationRelativeTo(null);
         setResizable(false);
@@ -28,16 +31,6 @@ public class ima_profe_1 extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 24)); // NOI18N
@@ -64,16 +57,6 @@ public class ima_profe_1 extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-       initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel1MousePressed
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel1MouseDragged
 
     private void jLabel3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseEntered
         jLabel3.setForeground(Color.red);

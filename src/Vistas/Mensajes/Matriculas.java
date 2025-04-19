@@ -1,34 +1,40 @@
-
 package Vistas.Mensajes;
 
-import java.awt.Point;
 import java.awt.Shape;
 import java.awt.geom.RoundRectangle2D;
+import utils.DragComponentHelper;
 
 public class Matriculas extends javax.swing.JDialog {
-private Point initialClick;
+
+    private final DragComponentHelper dragComponentHelper_1;
+    private final DragComponentHelper dragComponentHelper_2;
+    private final DragComponentHelper dragComponentHelper_3;
+
     public Matriculas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.dragComponentHelper_1 = new DragComponentHelper(jLabel2);
+        this.dragComponentHelper_2 = new DragComponentHelper(jPanel1);
+        this.dragComponentHelper_3 = new DragComponentHelper(text);
         this.setSize(610, 335);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
-        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 20,20);
-	this.setShape(forma);
+        Shape forma = new RoundRectangle2D.Double(0, 0, this.getBounds().width, this.getBounds().height, 20, 20);
+        this.setShape(forma);
         String mensaje = "<html>"
-            + "<head>"
-            + "<style>"
-            + "body { font-family: Arial, sans-serif; text-align: center; }"
-            + "p { font-size: 15px; color: #fff;  text-align: justify; hyphens: auto;}"
-            + "</style>"
-            + "</head>"
-            + "<body>"
-            + "<p>Actualmente nos encontramos </p>"
-            + "<p>en registro de matriculas.</p>"
-            + "<p>Un ves culminada las matriculas</p> "
-            + "<p>comenzarás a registrar tu atención.</p>"
-            + "</body>"
-            + "</html>";
+                + "<head>"
+                + "<style>"
+                + "body { font-family: Arial, sans-serif; text-align: center; }"
+                + "p { font-size: 15px; color: #fff;  text-align: justify; hyphens: auto;}"
+                + "</style>"
+                + "</head>"
+                + "<body>"
+                + "<p>Actualmente nos encontramos </p>"
+                + "<p>en registro de matriculas.</p>"
+                + "<p>Un ves culminada las matriculas</p> "
+                + "<p>comenzarás a registrar tu atención.</p>"
+                + "</body>"
+                + "</html>";
 
         text.setText(mensaje);
     }
@@ -47,16 +53,6 @@ private Point initialClick;
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Forms-cuate (1).png"))); // NOI18N
@@ -95,16 +91,6 @@ private Point initialClick;
     private void rSButtonHover1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rSButtonHover1ActionPerformed
         dispose();
     }//GEN-LAST:event_rSButtonHover1ActionPerformed
-
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel1MousePressed
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-       int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel1MouseDragged
 
     public static void main(String args[]) {
 

@@ -67,8 +67,6 @@ public class Registro_Tutorial extends javax.swing.JPanel {
         initComponents();
         ate = new Atencion();
         lstalumnos.setModel(listModel3);
-//        lstalumnos.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
-
         txtobs.setEditable(false);
         txtobs.setEnabled(false);
         cbomotivo.setModel(combo5);
@@ -256,6 +254,7 @@ public class Registro_Tutorial extends javax.swing.JPanel {
 
         List<String> selectedItems = lstalumnos.getSelectedValuesList();
 
+        
         for (String selectedItem : selectedItems) {
             Vector<Object> rowData = new Vector<>();
             rowData.add(selectedItem); // Elemento seleccionado
@@ -294,7 +293,6 @@ public class Registro_Tutorial extends javax.swing.JPanel {
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         panelficha = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -568,14 +566,7 @@ public class Registro_Tutorial extends javax.swing.JPanel {
         });
         panelficha.add(cboatencion, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, -1, -1));
 
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 20;
-        gridBagConstraints.ipady = 20;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(10, 20, 11, 18);
-        add(panelficha, gridBagConstraints);
+        add(panelficha, new java.awt.GridBagConstraints());
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtobsMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtobsMousePressed

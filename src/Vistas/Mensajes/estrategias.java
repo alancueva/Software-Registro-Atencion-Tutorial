@@ -1,13 +1,15 @@
-
 package Vistas.Mensajes;
 
-import java.awt.Point;
+import utils.DragComponentHelper;
 
 public class estrategias extends javax.swing.JDialog {
-    private Point initialClick;
+
+    private final DragComponentHelper dragComponentHelper_1;
+
     public estrategias(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.dragComponentHelper_1 = new DragComponentHelper(jLabel1);
         setLocationRelativeTo(null);
         this.setSize(1020, 775);
         this.setResizable(false);
@@ -26,16 +28,6 @@ public class estrategias extends javax.swing.JDialog {
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/tutoria.png"))); // NOI18N
-        jLabel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel1MouseDragged(evt);
-            }
-        });
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel1MousePressed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -73,16 +65,6 @@ public class estrategias extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MousePressed
-     initialClick = evt.getPoint();
-    }//GEN-LAST:event_jLabel1MousePressed
-
-    private void jLabel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jLabel1MouseDragged
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

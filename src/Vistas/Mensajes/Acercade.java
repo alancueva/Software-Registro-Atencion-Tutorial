@@ -1,14 +1,21 @@
 
 package Vistas.Mensajes;
 
-import java.awt.Point;
+import utils.DragComponentHelper;
+
 
 public class Acercade extends javax.swing.JDialog {
-    private Point initialClick;
+
+    private final DragComponentHelper dragComponentHelper_;
+    private final DragComponentHelper dragComponentHelper_1;
+    private final DragComponentHelper dragComponentHelper_2;
+    
     public Acercade(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+        this.dragComponentHelper_ = new DragComponentHelper(jPanel1);     
+        this.dragComponentHelper_1 = new DragComponentHelper(jLabel12);
+        this.dragComponentHelper_2 = new DragComponentHelper(panelRound1);
         setTitle("Acerca De");
         setSize(884, 500);
         setLocationRelativeTo(null);
@@ -54,16 +61,6 @@ public class Acercade extends javax.swing.JDialog {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
-        jPanel1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jPanel1MouseDragged(evt);
-            }
-        });
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jPanel1MousePressed(evt);
-            }
-        });
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelRound1.setBackground(new java.awt.Color(255, 255, 255));
@@ -71,16 +68,6 @@ public class Acercade extends javax.swing.JDialog {
         panelRound1.setRoundBottomRight(50);
         panelRound1.setRoundTopLeft(50);
         panelRound1.setRoundTopRight(50);
-        panelRound1.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                panelRound1MouseDragged(evt);
-            }
-        });
-        panelRound1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                panelRound1MousePressed(evt);
-            }
-        });
         panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel7.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -109,52 +96,12 @@ public class Acercade extends javax.swing.JDialog {
 
         jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Learning-bro (1).png"))); // NOI18N
         jLabel12.setFocusable(false);
-        jLabel12.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseDragged(java.awt.event.MouseEvent evt) {
-                jLabel12MouseDragged(evt);
-            }
-        });
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabel12MousePressed(evt);
-            }
-        });
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, -70, 600, 620));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 960, 510));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jPanel1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jPanel1MousePressed
-
-    private void jLabel12MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_jLabel12MousePressed
-
-    private void panelRound1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MousePressed
-        initialClick = evt.getPoint();
-    }//GEN-LAST:event_panelRound1MousePressed
-
-    private void jLabel12MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jLabel12MouseDragged
-
-    private void panelRound1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRound1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_panelRound1MouseDragged
-
-    private void jPanel1MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseDragged
-        int x = this.getLocation().x + evt.getX() - initialClick.x;
-        int y = this.getLocation().y + evt.getY() - initialClick.y;
-        this.setLocation(x, y);
-    }//GEN-LAST:event_jPanel1MouseDragged
 
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> {

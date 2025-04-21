@@ -45,7 +45,4 @@ Para empaquetar el proyecto y generar un instalador, seguiremos los siguientes p
 
    ```bash
    jpackage --name MiAplicacion --input dist --main-jar MiAplicacion.jar --main-class com.miaplicacion.Main --type exe --win-menu
-<<<<<<< HEAD
-=======
 
->>>>>>> 986b0b4522818632a1412df5becb0d6974854dfc

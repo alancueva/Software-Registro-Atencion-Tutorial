@@ -1,0 +1,8 @@
+
+config.json
+/build
+/dist
+/src/resources/config.json
+
+build/
+dist/

@@ -1,14 +1,14 @@
 
-import Controladores.Internet;
-//import Controladores.Usuario;
+//import Controladores.Internet;
 import Vistas.Incio_sesion.InicioSesion;
-import Vistas.Mensajes.SinInternet;
+//import Vistas.Mensajes.SinInternet;
 import com.sun.jdi.connect.spi.Connection;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Shape;
 import java.awt.Toolkit;
 import java.awt.geom.RoundRectangle2D;
+import java.time.LocalDate;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 import javax.swing.SwingUtilities;
@@ -27,6 +27,24 @@ public class PantallaCarga extends javax.swing.JFrame {
         setDefaultCloseOperation(PantallaCarga.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         mensaje();
+        
+        
+        LocalDate fechaActual = LocalDate.now();
+        int año = fechaActual.getYear();
+        String anio = String.valueOf(año);
+        
+         String d = "<html>"
+                + "<head>"
+                + "<style>"
+                + "body { font-family: Arial, sans-serif; }"
+                + "h4 { margin-bottom: 5px; }"
+                + "</style>"
+                + "</head>"
+                + "<body>"
+                + "<h4>© "+ anio +"</h4>"
+                + "</body>"
+                + "</html>";
+        lbl_año.setText(d);
     }
 
     @Override
@@ -49,7 +67,7 @@ public class PantallaCarga extends javax.swing.JFrame {
         lblcarga = new javax.swing.JLabel();
         ProgressBar = new javax.swing.JProgressBar();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        lbl_año = new javax.swing.JLabel();
         lblcon = new javax.swing.JLabel();
         progrescon = new javax.swing.JProgressBar();
         lbl_txt = new javax.swing.JLabel();
@@ -109,10 +127,9 @@ public class PantallaCarga extends javax.swing.JFrame {
         jLabel4.setText("REGISTRO DE ATENCION TUTORIAL ");
         panelRound2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 310, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel5.setText("© 2024");
-        jLabel5.setToolTipText("");
-        panelRound2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 60, 20));
+        lbl_año.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        lbl_año.setToolTipText("");
+        panelRound2.add(lbl_año, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 60, 20));
         panelRound2.add(lblcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 310, 30));
 
         progrescon.setBackground(new java.awt.Color(255, 255, 255));
@@ -277,10 +294,10 @@ public class PantallaCarga extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbl_año;
     private javax.swing.JLabel lbl_txt;
     private javax.swing.JLabel lblcarga;
     private javax.swing.JLabel lblcon;
